@@ -17,12 +17,14 @@
 				</tr>
 				<tr>
 					<td>Card Name:</td>
-					<td><input type="text" th:field="*{name}" /></td>
+					<td><input type="text" th:field="*{name}" /><span
+						class="validationError" th:if="${#fields.hasErrors('name')}"
+						th:errors="*{name}">name Error</span></td>
 				</tr>
 				<tr>
 					<td>Card Money:</td>
 					<td><input type="text" th:field="*{money}" /> <span
-						style="color: red;" th:if="${#fields.hasErrors('money')}"
+						class="validationError" th:if="${#fields.hasErrors('money')}"
 						th:errors="*{money}">money Error</span></td>
 				</tr>
 				<tr>

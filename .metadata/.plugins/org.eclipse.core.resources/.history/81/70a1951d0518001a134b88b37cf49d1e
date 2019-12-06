@@ -60,7 +60,7 @@ public class YoyoCardController {
 	@PostMapping("/save")
 	public String saveCard(@Valid @ModelAttribute("yoyocard") YoyoCard yoyocard, Errors errors) {
 		if(errors.hasErrors()) {
-			return "new_card";
+			return "new_card"
 		}
 		repo.save(yoyocard);
 		return "redirect:/home";

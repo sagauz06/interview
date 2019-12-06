@@ -20,7 +20,6 @@ public class YoyoCard {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	// @Min(1000)
-	@Min(value = 1000, message = "金額不小於1000")
+	@Min(1000)
 	private int money;
 }
