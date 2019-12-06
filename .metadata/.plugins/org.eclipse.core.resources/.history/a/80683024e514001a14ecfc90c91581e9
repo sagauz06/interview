@@ -1,0 +1,12 @@
+package div.example.demo.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import div.example.demo.data.YoyocardRepository;
+
+@Controller
+public class YoyocardController {
+	@Autowired
+	private YoyocardRepository repo;
+}

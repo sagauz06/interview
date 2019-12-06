@@ -1,0 +1,31 @@
+package div.example.demo.web;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import div.example.demo.YoyoCard;
+import div.example.demo.data.YoyoCardRepository;
+
+@Controller
+public class YoyoCardController {
+	@Autowired
+	private YoyoCardRepository repo;
+
+	public List<YoyoCard> showAll() {
+		return repo.findAll();
+	}
+
+	public void save(YoyoCard yoyoCard) {
+		repo.save(yoyoCard);
+	}
+
+	public YoyoCard get(Long id) {
+		return (YoyoCard) repo.findById(id).get();
+	}
+
+	public void delete(Long id) {
+		repo.deleteById(id);
+	}
+}

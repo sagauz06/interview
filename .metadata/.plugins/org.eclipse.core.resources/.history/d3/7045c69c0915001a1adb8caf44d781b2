@@ -1,0 +1,58 @@
+package div.example.demo.web;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import div.example.demo.YoyoCard;
+import div.example.demo.data.YoyoCardRepository;
+
+@Controller
+@RequestMapping("/")
+public class YoyoCardController {
+	@Autowired
+	private YoyoCardRepository repo;
+
+	public List<YoyoCard> showAll() {
+		return repo.findAll();
+	}
+
+	public void save(YoyoCard yoyoCard) {
+		repo.save(yoyoCard);
+	}
+
+	public YoyoCard get(Long id) {
+		return repo.findById(id).get();
+	}
+
+	public void delete(Long id) {
+		repo.deleteById(id);
+	}
+
+	@GetMapping("/home")
+	public String viewHomePage(Model model) {
+		List<YoyoCard> listYoyoCard = repo.findAll();
+		;
+		model.addAttribute("listYoyoCard", listYoyoCard);
+		return "home";
+	}
+
+	@GetMapping("/new")
+	public String showNewCard(Model model) {
+		YoyoCard yoyocard = new YoyoCard();
+		model.addAttribute("yoyocard", yoyocard);
+		return "new_card";
+	}
+
+	@PostMapping("/save")
+	public String saveCard(@ModelAttribute("yoyocard") YoyoCard yoyocard) {
+		repo.save(yoyocard);
+		return "redirect:/";
+	}
+}

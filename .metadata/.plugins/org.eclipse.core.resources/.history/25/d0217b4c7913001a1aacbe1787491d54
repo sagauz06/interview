@@ -1,0 +1,11 @@
+package div.example.demo;
+
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@RequiredArgsConstructor
+public class PizzaIngredient {
+	private final String id;
+	private final String name;
+}
