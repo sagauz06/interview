@@ -1,8 +1,0 @@
-package div.example.demo;
-
-import lombok.Data;
-
-@Data
-public class DefultValue {
-	private final String defultValue = "HI";
-}

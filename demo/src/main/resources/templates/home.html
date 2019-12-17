@@ -69,7 +69,7 @@
 				<li class="nav-item active"><a class="nav-link" href="#">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="new">新增</a></li>
+				<li class="nav-item"><a class="nav-link" href="/productList">顯示所有產品</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Disabled</a></li>
 				<li class="nav-item dropdown"><a
@@ -98,36 +98,6 @@
 				All you get is this text and a mostly barebones HTML document.
 			</p>
 		</div>
-
-		<!-- <div th:each="YoyoCard : ${card}">
-		<span th:text="${YoyoCard.id}">NAME</span><br />
-		<span th:text="${YoyoCard.name}">NAME</span><br />
-		<span th:text="${YoyoCard.money}">NAME</span><br />
-	</div> -->
-
-		<div align="center">
-			<h3>YoyoCard</h3>
-			<table border="1">
-				<thead>
-					<tr>
-						<th>YoyoCard ID</th>
-						<th>YoyoCard NAME</th>
-						<th>YoyoCard Money</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="YoyoCard : ${listYoyoCard}">
-						<td th:text="${YoyoCard.id}">YoyoCard ID</td>
-						<td th:text="${YoyoCard.name}">YoyoCard NAME</td>
-						<td th:text="${YoyoCard.money}">YoyoCard Money</td>
-						<td><a th:href="@{'/edit/' + ${YoyoCard.id}}">修改</a>
-							&nbsp;&nbsp;&nbsp; <a th:href="@{'/delete/' + ${YoyoCard.id}}">刪除</a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
 	</main>
 	<!-- /.container -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

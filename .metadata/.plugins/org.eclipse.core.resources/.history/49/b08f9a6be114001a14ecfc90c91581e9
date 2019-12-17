@@ -1,5 +1,0 @@
-package div.example.demo.data;
-
-public interface YoyocardRepository {
-
-}

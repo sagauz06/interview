@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="h3 mb-3 font-weight-normal"/>
+			<item value="h2"/>
 			<item value="pack"/>
 			<item value="Link"/>
 			<item value="drop"/>
