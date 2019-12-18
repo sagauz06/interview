@@ -9,6 +9,7 @@
 <form method="POST" th:action="@{/register}" id="registerForm">
 
         <label for="username">Username: </label>
+        <!-- <span style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">使用者名稱已存在</span> -->
         <input type="text" name="username"/><br/>
 
         <label for="password">Password: </label>

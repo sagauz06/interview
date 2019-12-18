@@ -2,6 +2,7 @@ package div.example.demo.web;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,20 +16,29 @@ public class RegistrationController {
 	private UserRepository userRepo;
 	private PasswordEncoder passwordEncoder;
 
-	  public RegistrationController(
-	      UserRepository userRepo, PasswordEncoder passwordEncoder) {
-	    this.userRepo = userRepo;
-	    this.passwordEncoder = passwordEncoder;
-	  }
+	public RegistrationController(UserRepository userRepo, PasswordEncoder passwordEncoder) {
+		this.userRepo = userRepo;
+		this.passwordEncoder = passwordEncoder;
+	}
 
-	  @GetMapping
-	  public String registerForm() {
-	    return "registration";
-	  }
+	@GetMapping
+	public String registerForm() {
+		return "registration";
+	}
 
-	  @PostMapping
-	  public String processRegistration(RegistrationForm form) {
-	    userRepo.save(form.toUser(passwordEncoder));
-	    return "redirect:/login";
-	  }
+	@PostMapping
+	public String processRegistration(RegistrationForm form) {
+		String username = form.getUsername();
+		try {
+			String dbUsername = userRepo.findByUsername(username).getUsername();
+			if (dbUsername.equals(username)) {
+				return "redirect:/duplicate";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		userRepo.save(form.toUser(passwordEncoder));
+		return "redirect:/login";
+	}
 }

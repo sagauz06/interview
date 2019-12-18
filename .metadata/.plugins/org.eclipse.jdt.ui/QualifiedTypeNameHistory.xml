@@ -57,4 +57,5 @@
 <fullyQualifiedTypeName name="div.example.demo.data.User"/>
 <fullyQualifiedTypeName name="div.example.demo.data.ProductRepository"/>
 <fullyQualifiedTypeName name="div.example.demo.data.Product"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>
